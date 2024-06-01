@@ -7,6 +7,9 @@ function App() {
   const [majelisCintaQuran, setmajelisCintaQuran] = useState(0);
   const [kajianPerkantoran, setkajianPerkantoran] = useState(0);
   const sectionRef = useRef(null);
+  const images = Array(15).fill("/kajian2.png");
+  const firstNineImages = images.slice(0, 9);
+  const remainingImages = images.slice(9);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,6 +38,23 @@ function App() {
         observer.unobserve(sectionRef.current);
       }
     };
+  }, []);
+
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile && scrollRef.current) {
+        scrollRef.current.scrollLeft = 100;
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -167,11 +187,100 @@ function App() {
     </svg>
   );
 
+  const logoLive = (
+    <svg
+      width="20"
+      height="16"
+      viewBox="0 0 20 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.343 0.938001C4.43598 1.03087 4.50974 1.14116 4.56006 1.26256C4.61039 1.38396 4.63629 1.51409 4.63629 1.6455C4.63629 1.77692 4.61039 1.90704 4.56006 2.02844C4.50974 2.14984 4.43598 2.26013 4.343 2.353C2.84244 3.85382 1.99946 5.88921 1.99946 8.0115C1.99946 10.1338 2.84244 12.1692 4.343 13.67C4.43585 13.7629 4.50948 13.8732 4.55971 13.9946C4.60993 14.1159 4.63575 14.246 4.63571 14.3774C4.63566 14.5087 4.60974 14.6388 4.55944 14.7601C4.50913 14.8814 4.43542 14.9917 4.3425 15.0845C4.24959 15.1773 4.13931 15.251 4.01794 15.3012C3.89657 15.3514 3.7665 15.3773 3.63515 15.3772C3.5038 15.3772 3.37375 15.3512 3.25242 15.3009C3.13108 15.2506 3.02085 15.1769 2.928 15.084C-0.977995 11.178 -0.977995 4.844 2.928 0.938001C3.02088 0.845025 3.13117 0.771265 3.25256 0.720941C3.37396 0.670617 3.50409 0.644714 3.6355 0.644714C3.76692 0.644714 3.89705 0.670617 4.01845 0.720941C4.13984 0.771265 4.25013 0.845025 4.343 0.938001ZM17.074 0.938001C20.98 4.845 20.98 11.178 17.074 15.084C16.8854 15.2662 16.6328 15.367 16.3706 15.3647C16.1084 15.3624 15.8576 15.2572 15.6722 15.0718C15.4868 14.8864 15.3816 14.6356 15.3793 14.3734C15.3771 14.1112 15.4778 13.8586 15.66 13.67C17.1606 12.1692 18.0036 10.1338 18.0036 8.0115C18.0036 5.88921 17.1606 3.85382 15.66 2.353C15.4724 2.16549 15.3669 1.91112 15.3668 1.64585C15.3667 1.38058 15.472 1.12614 15.6595 0.938501C15.847 0.75086 16.1014 0.645392 16.3666 0.645298C16.6319 0.645205 16.8864 0.750493 17.074 0.938001ZM7.31001 3.812C7.49748 3.99953 7.60279 4.25384 7.60279 4.519C7.60279 4.78417 7.49748 5.03847 7.31001 5.226C6.94596 5.59001 6.65718 6.02217 6.46015 6.49779C6.26313 6.97341 6.16172 7.48319 6.16172 7.998C6.16172 8.51282 6.26313 9.02259 6.46015 9.49821C6.65718 9.97383 6.94596 10.406 7.31001 10.77C7.40552 10.8622 7.4817 10.9726 7.53411 11.0946C7.58652 11.2166 7.6141 11.3478 7.61526 11.4806C7.61641 11.6134 7.59111 11.7451 7.54083 11.868C7.49055 11.9909 7.41629 12.1025 7.3224 12.1964C7.22851 12.2903 7.11685 12.3645 6.99396 12.4148C6.87106 12.4651 6.73938 12.4904 6.6066 12.4893C6.47382 12.4881 6.3426 12.4605 6.2206 12.4081C6.0986 12.3557 5.98825 12.2795 5.896 12.184C4.78583 11.0738 4.16215 9.56805 4.16215 7.998C4.16215 6.42795 4.78583 4.92221 5.896 3.812C6.08353 3.62453 6.33784 3.51921 6.603 3.51921C6.86817 3.51921 7.12248 3.62453 7.31001 3.812ZM14.269 3.812C15.3792 4.92221 16.0029 6.42795 16.0029 7.998C16.0029 9.56805 15.3792 11.0738 14.269 12.184C14.1762 12.2769 14.0659 12.3506 13.9446 12.4009C13.8233 12.4512 13.6932 12.4772 13.5619 12.4772C13.4305 12.4773 13.3004 12.4514 13.1791 12.4012C13.0577 12.351 12.9474 12.2773 12.8545 12.1845C12.7616 12.0917 12.6879 11.9814 12.6376 11.8601C12.5873 11.7388 12.5613 11.6087 12.5613 11.4774C12.5613 11.346 12.5871 11.2159 12.6373 11.0946C12.6875 10.9732 12.7612 10.8629 12.854 10.77C13.2181 10.406 13.5068 9.97383 13.7039 9.49821C13.9009 9.02259 14.0023 8.51282 14.0023 7.998C14.0023 7.48319 13.9009 6.97341 13.7039 6.49779C13.5068 6.02217 13.2181 5.59001 12.854 5.226C12.6665 5.03836 12.5612 4.78392 12.5613 4.51865C12.5614 4.25338 12.6669 3.99901 12.8545 3.8115C13.0421 3.62399 13.2966 3.5187 13.5619 3.5188C13.8271 3.51889 14.0815 3.62436 14.269 3.812ZM10.082 6.582C10.279 6.582 10.474 6.6208 10.656 6.69618C10.838 6.77156 11.0034 6.88205 11.1427 7.02134C11.282 7.16063 11.3924 7.32599 11.4678 7.50798C11.5432 7.68996 11.582 7.88502 11.582 8.082C11.582 8.27898 11.5432 8.47404 11.4678 8.65603C11.3924 8.83801 11.282 9.00337 11.1427 9.14266C11.0034 9.28195 10.838 9.39244 10.656 9.46782C10.474 9.5432 10.279 9.582 10.082 9.582C9.68418 9.582 9.30265 9.42397 9.02134 9.14266C8.74004 8.86136 8.582 8.47983 8.582 8.082C8.582 7.68418 8.74004 7.30264 9.02134 7.02134C9.30265 6.74004 9.68418 6.582 10.082 6.582Z"
+        fill="#636363"
+      />
+    </svg>
+  );
+
+  const logoIsComming = (
+    <svg
+      width="21"
+      height="20"
+      viewBox="0 0 21 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15.5 2H19.5C19.7652 2 20.0196 2.10536 20.2071 2.29289C20.3946 2.48043 20.5 2.73478 20.5 3V19C20.5 19.2652 20.3946 19.5196 20.2071 19.7071C20.0196 19.8946 19.7652 20 19.5 20H1.5C1.23478 20 0.98043 19.8946 0.792893 19.7071C0.605357 19.5196 0.5 19.2652 0.5 19V3C0.5 2.73478 0.605357 2.48043 0.792893 2.29289C0.98043 2.10536 1.23478 2 1.5 2H5.5V0H7.5V2H13.5V0H15.5V2ZM18.5 10H2.5V18H18.5V10ZM13.5 4H7.5V6H5.5V4H2.5V8H18.5V4H15.5V6H13.5V4ZM4.5 12H6.5V14H4.5V12ZM9.5 12H11.5V14H9.5V12ZM14.5 12H16.5V14H14.5V12Z"
+        fill="#636363"
+      />
+    </svg>
+  );
+
+  const logoOffice = (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M22.6071 22.5938H20.7521V0.703125C20.7521 0.314812 20.4373 0 20.049 0H3.95101C3.56269 0 3.24788 0.314812 3.24788 0.703125V22.5938H1.39294C1.00463 22.5938 0.689819 22.9086 0.689819 23.2969C0.689819 23.6852 1.00463 24 1.39294 24H22.6071C22.9954 24 23.3102 23.6852 23.3102 23.2969C23.3102 22.9086 22.9954 22.5938 22.6071 22.5938ZM9.60324 22.5938V17.8003H14.3967V22.5938H9.60324ZM15.803 22.5938V17.0971C15.803 16.7088 15.4882 16.394 15.0999 16.394H8.90012C8.5118 16.394 8.19699 16.7088 8.19699 17.0971V22.5938H4.65413V1.40625H19.3458V22.5938H15.803Z"
+        fill="#636363"
+      />
+    </svg>
+  );
+
+  const logoOnline = (
+    <svg
+      width="25"
+      height="24"
+      viewBox="0 0 25 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_651_77)">
+        <path
+          d="M18.125 19.0781C18.125 19.4665 17.8102 19.7812 17.4219 19.7812C17.0335 19.7812 16.7188 19.4665 16.7188 19.0781C16.7188 18.6898 17.0335 18.375 17.4219 18.375C17.8102 18.375 18.125 18.6898 18.125 19.0781Z"
+          fill="#636363"
+        />
+        <path
+          d="M14.6094 8.53125H15.4332C16.5278 8.53125 17.557 8.95752 18.331 9.73151C18.4659 9.86664 18.6467 9.9375 18.8283 9.9375C19.0153 9.9375 19.1962 9.86078 19.3253 9.73151C19.7856 9.27118 20.3365 8.935 20.9375 8.73724V10.6406C20.9375 11.029 21.2523 11.3438 21.6406 11.3438C22.029 11.3438 22.3438 11.029 22.3438 10.6406V8.53125H23.0469C23.4352 8.53125 23.75 8.21649 23.75 7.82812V0.703125C23.75 0.314758 23.4352 0 23.0469 0H22.2231C20.9763 0 19.7931 0.411804 18.8281 1.17096C17.8632 0.411804 16.6799 0 15.4332 0H14.6094C14.221 0 13.9062 0.314758 13.9062 0.703125V7.82812C13.9062 8.21649 14.221 8.53125 14.6094 8.53125ZM22.3438 1.40625V7.125H22.2231C21.2458 7.125 20.3256 7.37878 19.5312 7.82556V2.41553C20.2776 1.76331 21.2226 1.40625 22.2231 1.40625H22.3438ZM15.3125 1.40625H15.4332C16.4333 1.40625 17.3788 1.76221 18.125 2.41406V7.82538C17.312 7.36816 16.3914 7.125 15.4332 7.125H15.3125V1.40625Z"
+          fill="#636363"
+        />
+        <path
+          d="M1.95312 24H23.0469C23.4352 24 23.75 23.6853 23.75 23.2969V16.2656C23.75 15.8773 23.4352 15.5625 23.0469 15.5625H16.6481C16.3214 13.9598 14.9009 12.75 13.2031 12.75H11.0938V12.0324C11.9701 11.3721 12.5 10.3338 12.5 9.23439V7.97865C12.5 6.18751 11.2402 4.63185 9.56958 4.36012C7.41058 4.00892 5.46875 5.65724 5.46875 7.82814V9.23439C5.46875 10.3338 5.99866 11.3721 6.875 12.0324V12.75H4.76562C2.82709 12.75 1.25 14.3271 1.25 16.2656V23.2969C1.25 23.6853 1.56476 24 1.95312 24ZM22.3438 22.5938H12.5V16.9688H22.3438V22.5938ZM6.875 7.82814C6.875 6.56856 7.99323 5.52852 9.34381 5.74824C10.3414 5.91048 11.0938 6.8694 11.0938 7.97865V9.23439C11.0938 9.98549 10.6986 10.6639 10.0369 11.0491C9.82062 11.1749 9.6875 11.4064 9.6875 11.6569V13.1618L8.98438 13.8649L8.28125 13.1618V11.6569C8.28125 11.4066 8.14813 11.1749 7.93188 11.0491C7.27014 10.6639 6.875 9.98549 6.875 9.23439V7.82814ZM2.65625 16.2656C2.65625 15.1026 3.60254 14.1563 4.76562 14.1563H7.2868L8.48724 15.3565C8.62439 15.4938 8.80438 15.5625 8.98438 15.5625C9.16437 15.5625 9.34436 15.4938 9.48151 15.3565L10.6819 14.1563H13.2031C14.1198 14.1563 14.9012 14.744 15.1917 15.5625H11.7969C11.4085 15.5625 11.0938 15.8773 11.0938 16.2656V20.4862C10.5058 20.0438 9.77521 19.7813 8.98438 19.7813H5.46875V16.2656C5.46875 15.8773 5.15399 15.5625 4.76562 15.5625C4.37726 15.5625 4.0625 15.8773 4.0625 16.2656V20.4844C4.0625 20.8728 4.37726 21.1875 4.76562 21.1875H8.98438C9.90118 21.1875 10.683 21.7753 10.9733 22.5938H2.65625V16.2656Z"
+          fill="#636363"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_651_77">
+          <rect
+            width="24"
+            height="24"
+            fill="white"
+            transform="translate(0.5)"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+
   return (
     <>
       <Navbar />
       <div className="border"></div>
-      <div className="bg-[#E8F4FB] w-full">
+      {/* Section Hero */}
+      <div
+        className="w-full md:h-[150vh]"
+        style={{
+          backgroundImage: `url('/BG.svg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <div className="content-section px-[20px] md:flex gap-[51px] animate-fadeIn md:pt-[134px] pt-[110px] md:pb-[121px] pb-[80px]">
           <div className="max-w-[552px]">
             <h1 className="font-bold md:text-[48px] md:leading-snug text-3xl mb-5 animate-slideIn">
@@ -313,182 +422,751 @@ function App() {
       </div>
       {/* Section Donasi */}
       <div
-        className="content-section px-[20px] my-20 sembunyikan"
+        className="content-section px-[20px] md:my-20 sembunyikan"
         ref={sectionRef}
       >
-        <div className="md:flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-[48px] font-semibold mb-2">Donasi Pilihan</h1>
-            <p className="text-[#636363]">
-              Pilih dan salurkan donasi melalui program-program kami yang
-              berarti bagi sahabat Cinta quran.
-            </p>
-          </div>
-          <div className="flex gap-6 justify-center md:mt-0 mt-8">
-            <svg
-              width="56"
-              height="56"
-              viewBox="0 0 56 56"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="0.5"
-                y="0.5"
-                width="55"
-                height="55"
-                rx="27.5"
-                fill="white"
-              />
-              <rect
-                x="0.5"
-                y="0.5"
-                width="55"
-                height="55"
-                rx="27.5"
-                stroke="#389ED9"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M33.5999 19.5999L25.1999 27.9999L33.5999 36.3999L30.7999 39.1999L19.5999 27.9999L30.7999 16.7999L33.5999 19.5999Z"
-                fill="#389ED9"
-              />
-            </svg>
+        <div>
+          <div className="md:flex justify-between items-center mb-8">
+            <div>
+              <h1 className="md:text-[48px] text-[32px] font-semibold mb-2">
+                Donasi Pilihan
+              </h1>
+              <p className="text-[#636363]">
+                Pilih dan salurkan donasi melalui program-program kami yang
+                berarti bagi sahabat Cinta quran.
+              </p>
+            </div>
+            <div className="flex gap-6 justify-center md:mt-0 mt-8">
+              <svg
+                width="56"
+                height="56"
+                viewBox="0 0 56 56"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="0.5"
+                  y="0.5"
+                  width="55"
+                  height="55"
+                  rx="27.5"
+                  fill="white"
+                />
+                <rect
+                  x="0.5"
+                  y="0.5"
+                  width="55"
+                  height="55"
+                  rx="27.5"
+                  stroke="#389ED9"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M33.5999 19.5999L25.1999 27.9999L33.5999 36.3999L30.7999 39.1999L19.5999 27.9999L30.7999 16.7999L33.5999 19.5999Z"
+                  fill="#389ED9"
+                />
+              </svg>
 
-            <svg
-              width="56"
-              height="56"
-              viewBox="0 0 56 56"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="-0.5"
-                y="0.5"
-                width="55"
-                height="55"
-                rx="27.5"
-                transform="matrix(-1 0 0 1 55 0)"
-                fill="white"
+              <svg
+                width="56"
+                height="56"
+                viewBox="0 0 56 56"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="-0.5"
+                  y="0.5"
+                  width="55"
+                  height="55"
+                  rx="27.5"
+                  transform="matrix(-1 0 0 1 55 0)"
+                  fill="white"
+                />
+                <rect
+                  x="-0.5"
+                  y="0.5"
+                  width="55"
+                  height="55"
+                  rx="27.5"
+                  transform="matrix(-1 0 0 1 55 0)"
+                  stroke="#389ED9"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M22.4 19.5999L30.8 27.9999L22.4 36.3999L25.2 39.1999L36.4 27.9999L25.2 16.7999L22.4 19.5999Z"
+                  fill="#389ED9"
+                />
+              </svg>
+            </div>
+          </div>
+          {/* Menu */}
+          <div className="flex items-center gap-6 overflow-auto">
+            <Category logo={logoAllCategory} name="Semua Kategori" active />
+            <Category logo={logoHumanity} name="Kemanusiaan" />
+            <Category logo={logoIBBQ} name="IBBQ" />
+            <Category logo={logoWakaf} name="Wakaf" />
+            <Category logo={logoMore} name="Lainnya" />
+          </div>
+          {/* Slide */}
+          <div className="my-8 grid md:grid-cols-3 grid-cols-1 gap-6 items-center justify-center">
+            <div className="max-w-[369.18px] shadow-xl rounded-lg pb-[26px] animate-fadeIn">
+              <img
+                src="https://tegarmine.github.io/tesghp/category1.png"
+                alt=""
+                className="w-[369.18px] h-[369.18px] rounded-t-lg"
               />
-              <rect
-                x="-0.5"
-                y="0.5"
-                width="55"
-                height="55"
-                rx="27.5"
-                transform="matrix(-1 0 0 1 55 0)"
-                stroke="#389ED9"
+              <p className="mt-6 text-lg font-semibold mb-9 px-3.5">
+                Sedekah Beras untuk seluruh para keluarga di afrika selatan
+              </p>
+              <div className="px-3.5">
+                <div className="flex items-center justify-between text-[#636363] text-sm mb-1">
+                  <span>Dana Terkumpul</span>
+                  <span>Sisa Waktu</span>
+                </div>
+                <div className="flex items-center justify-between text-[#389ED9] text-base font-semibold mb-4">
+                  <span>Rp 25.000.000</span>
+                  <span>2 Hari Lagi</span>
+                </div>
+                <div>
+                  <div className="bg-[#EDF4F8] h-1 w-full rounded-[100px]">
+                    <div className="bg-[#AFCD21] h-1 w-1/2 rounded-[100px] relative">
+                      <div className="bg-[#AFCD21] w-2 h-2 rounded-full absolute right-0 -top-[2px]"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-[369.18px] shadow-xl rounded-lg pb-[26px] animate-fadeIn">
+              <img
+                src="https://tegarmine.github.io/tesghp/category1.png"
+                alt=""
+                className="w-[369.18px] h-[369.18px] rounded-t-lg"
               />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M22.4 19.5999L30.8 27.9999L22.4 36.3999L25.2 39.1999L36.4 27.9999L25.2 16.7999L22.4 19.5999Z"
-                fill="#389ED9"
+              <p className="mt-6 text-lg font-semibold mb-9 px-3.5">
+                Sedekah Beras untuk seluruh para keluarga di afrika selatan
+              </p>
+              <div className="px-3.5">
+                <div className="flex items-center justify-between text-[#636363] text-sm mb-1">
+                  <span>Dana Terkumpul</span>
+                  <span>Sisa Waktu</span>
+                </div>
+                <div className="flex items-center justify-between text-[#389ED9] text-base font-semibold mb-4">
+                  <span>Rp 25.000.000</span>
+                  <span>2 Hari Lagi</span>
+                </div>
+                <div>
+                  <div className="bg-[#EDF4F8] h-1 w-full rounded-[100px]">
+                    <div className="bg-[#AFCD21] h-1 w-1/2 rounded-[100px] relative">
+                      <div className="bg-[#AFCD21] w-2 h-2 rounded-full absolute right-0 -top-[2px]"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-[369.18px] shadow-xl rounded-lg pb-[26px] animate-fadeIn">
+              <img
+                src="https://tegarmine.github.io/tesghp/category1.png"
+                alt=""
+                className="w-[369.18px] h-[369.18px] rounded-t-lg"
               />
-            </svg>
+              <p className="mt-6 text-lg font-semibold mb-9 px-3.5">
+                Sedekah Beras untuk seluruh para keluarga di afrika selatan
+              </p>
+              <div className="px-3.5">
+                <div className="flex items-center justify-between text-[#636363] text-sm mb-1">
+                  <span>Dana Terkumpul</span>
+                  <span>Sisa Waktu</span>
+                </div>
+                <div className="flex items-center justify-between text-[#389ED9] text-base font-semibold mb-4">
+                  <span>Rp 25.000.000</span>
+                  <span>2 Hari Lagi</span>
+                </div>
+                <div>
+                  <div className="bg-[#EDF4F8] h-1 w-full rounded-[100px]">
+                    <div className="bg-[#AFCD21] h-1 w-1/2 rounded-[100px] relative">
+                      <div className="bg-[#AFCD21] w-2 h-2 rounded-full absolute right-0 -top-[2px]"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center gap-2 mb-14">
+            <div className="h-1 w-8 rounded-[100px] bg-[#389ED9]"></div>
+            <div className="h-1 w-4 rounded-[100px] bg-[#D0D0D0]"></div>
+            <div className="h-1 w-4 rounded-[100px] bg-[#D0D0D0]"></div>
+            <div className="h-1 w-4 rounded-[100px] bg-[#D0D0D0]"></div>
           </div>
         </div>
-        {/* Menu */}
-        <div className="flex items-center gap-6 overflow-auto">
-          <Category logo={logoAllCategory} name="Semua Kategori" active />
-          <Category logo={logoHumanity} name="Kemanusiaan" />
-          <Category logo={logoIBBQ} name="IBBQ" />
-          <Category logo={logoWakaf} name="Wakaf" />
-          <Category logo={logoMore} name="Lainnya" />
-        </div>
-        {/* Slide */}
+        {/* Card */}
         <div className="my-8 grid md:grid-cols-3 grid-cols-1 gap-6 items-center justify-center">
-          <div className="max-w-[369.18px] shadow-xl rounded-lg pb-[26px] animate-fadeIn">
-            <img
-              src="/category1.png"
-              alt=""
-              className="w-[369.18px] h-[369.18px] rounded-t-lg"
-            />
-            <p className="mt-6 text-lg font-semibold mb-9 px-3.5">
-              Sedekah Beras untuk seluruh para keluarga di afrika selatan
-            </p>
-            <div className="px-3.5">
-              <div className="flex items-center justify-between text-[#636363] text-sm mb-1">
-                <span>Dana Terkumpul</span>
-                <span>Sisa Waktu</span>
+          <div className="flex gap-4">
+            <div>
+              <svg
+                width="117"
+                height="108"
+                viewBox="0 0 117 108"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_1_203)">
+                  <path
+                    opacity="0.1"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M92.6401 69.2336C85.0663 82.1997 72.0657 86.6402 60.3847 90.1206C50.0087 93.2122 40.1152 93.1316 32.8103 87.06C24.6567 80.283 17.3585 70.3017 19.6844 56.2917C21.9965 42.3649 33.3118 31.3967 43.6309 21.8824C53.6296 12.6636 64.6413 4.17314 75.0674 5.22831C86.0964 6.34449 93.7761 15.2424 97.0843 27.2921C100.525 39.8237 100.597 55.6111 92.6401 69.2336Z"
+                    fill="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.1"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M50.5283 79.403C34.1041 78.2911 23.4245 70.391 14.3297 63.1215C6.2509 56.6641 1.52464 49.4885 3.94482 42.1686C6.64621 33.9982 12.9128 25.3683 27.8142 22.3373C42.627 19.3243 58.9047 23.8115 73.2692 28.0678C87.1877 32.192 100.882 37.2931 104.909 45.1812C109.169 53.5254 104.153 62.0666 93.9147 68.5093C83.2675 75.2096 67.7839 80.5712 50.5283 79.403Z"
+                    fill="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.2"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M48.9926 73.0292C34.5208 65.1834 28.0973 53.5557 22.8526 43.1608C18.1937 33.9272 16.8821 25.4357 22.1289 19.7868C27.9853 13.4816 37.2747 8.24217 52.0859 11.6871C66.809 15.1116 79.7431 25.9655 91.0335 35.8134C101.973 45.3555 112.303 55.6928 112.682 64.5412C113.083 73.9013 104.968 79.5803 92.9773 81.1783C80.5075 82.8402 64.1971 81.2722 48.9926 73.0292Z"
+                    stroke="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.2"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M28.3784 34.6112C37.4634 20.2034 51.4336 15.1809 63.9394 11.2318C75.0481 7.72386 85.3641 7.7292 92.4327 14.384C100.323 21.812 107.028 32.7919 103.324 48.3101C99.6413 63.7361 86.8344 75.9655 75.1995 86.578C63.9259 96.861 51.6617 106.347 40.8789 105.268C29.4725 104.126 22.2705 94.3482 19.9171 81.0463C17.4696 67.2125 18.8335 49.7484 28.3784 34.6112Z"
+                    stroke="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.5"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M60.5074 10.0491C73.2552 10.7738 81.7437 21.1996 88.9877 30.8297C95.4223 39.384 99.2811 49.1012 97.6106 59.3743C95.746 70.841 91.1337 83.1225 79.68 88.0681C68.2944 92.9843 55.5662 87.5708 44.3258 82.3822C33.4344 77.3548 22.6892 70.9612 19.3521 60.2209C15.822 48.8595 19.4687 36.7633 27.2167 27.3179C35.2745 17.4947 47.1142 9.28763 60.5074 10.0491Z"
+                    stroke="#B1CF1F"
+                  />
+                </g>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M43.4882 40.4882C43.8007 40.1756 44.2247 40 44.6667 40H46.0474C45.8011 40.6965 45.4012 41.3365 44.8689 41.8689C44.3365 42.4012 43.6965 42.8011 43 43.0474V41.6667C43 41.2247 43.1756 40.8007 43.4882 40.4882ZM44.6667 36.6667H48H71.3334C72.6594 36.6667 73.9312 37.1935 74.8689 38.1312C75.8066 39.0688 76.3333 40.3406 76.3333 41.6667V54.9964C76.3333 54.9976 76.3334 54.9988 76.3334 55C76.3334 55.0012 76.3333 55.0024 76.3333 55.0036V58.3334C76.3333 59.6594 75.8066 60.9312 74.8689 61.8689C73.9312 62.8066 72.6594 63.3334 71.3334 63.3334H68H44.6667C43.3406 63.3334 42.0688 62.8066 41.1312 61.8689C40.1935 60.9312 39.6667 59.6594 39.6667 58.3334V45V41.6667C39.6667 40.3406 40.1935 39.0688 41.1312 38.1312C42.0688 37.1935 43.3406 36.6667 44.6667 36.6667ZM69.9526 60H71.3334C71.7754 60 72.1993 59.8244 72.5119 59.5119C72.8244 59.1993 73 58.7754 73 58.3334V56.9526C72.3035 57.1989 71.6635 57.5988 71.1312 58.1312C70.5988 58.6635 70.1989 59.3035 69.9526 60ZM73 53.5017C71.4109 53.8261 69.9381 54.6102 68.7741 55.7741C67.6102 56.9381 66.8261 58.4109 66.5017 60H44.6667C44.2247 60 43.8007 59.8244 43.4882 59.5119C43.1756 59.1993 43 58.7754 43 58.3334V46.4984C44.5891 46.174 46.0619 45.3899 47.2259 44.2259C48.3899 43.0619 49.174 41.5891 49.4984 40H71.3334C71.7754 40 72.1993 40.1756 72.5119 40.4882C72.8244 40.8007 73 41.2247 73 41.6667V53.5017ZM54.6667 50C54.6667 48.1591 56.1591 46.6667 58 46.6667C59.841 46.6667 61.3334 48.1591 61.3334 50C61.3334 51.841 59.841 53.3334 58 53.3334C56.1591 53.3334 54.6667 51.841 54.6667 50ZM58 43.3334C54.3181 43.3334 51.3334 46.3181 51.3334 50C51.3334 53.6819 54.3181 56.6667 58 56.6667C61.6819 56.6667 64.6667 53.6819 64.6667 50C64.6667 46.3181 61.6819 43.3334 58 43.3334Z"
+                  fill="#B1CF1F"
+                />
+                <defs>
+                  <clipPath id="clip0_1_203">
+                    <rect width="117" height="108" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-2xl font-semibold mb-1">Zakat 100%</h1>
+              <p className="text-base text-[#636363] mb-6">
+                Tunaikan Zakat Anda melalui Program Zakat 100% Amanah.
+              </p>
+              <p className="text-[#389ED9] font-medium">Selengkapnya</p>
+            </div>
+          </div>
+
+          <div className="flex gap-4">
+            <div>
+              <svg
+                width="117"
+                height="108"
+                viewBox="0 0 117 108"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_1_217)">
+                  <path
+                    opacity="0.1"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M92.6401 69.2336C85.0663 82.1997 72.0657 86.6402 60.3847 90.1206C50.0087 93.2122 40.1152 93.1316 32.8103 87.06C24.6567 80.283 17.3585 70.3017 19.6844 56.2917C21.9965 42.3649 33.3118 31.3967 43.6309 21.8824C53.6296 12.6636 64.6413 4.17314 75.0674 5.22831C86.0964 6.34449 93.7761 15.2424 97.0843 27.2921C100.525 39.8237 100.597 55.6111 92.6401 69.2336Z"
+                    fill="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.1"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M50.5283 79.403C34.1041 78.2911 23.4245 70.391 14.3297 63.1215C6.2509 56.6641 1.52464 49.4885 3.94482 42.1686C6.64621 33.9982 12.9128 25.3683 27.8142 22.3373C42.627 19.3243 58.9047 23.8115 73.2692 28.0678C87.1877 32.192 100.882 37.2931 104.909 45.1812C109.169 53.5254 104.153 62.0666 93.9147 68.5093C83.2675 75.2096 67.7839 80.5712 50.5283 79.403Z"
+                    fill="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.2"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M48.9926 73.0292C34.5208 65.1834 28.0973 53.5557 22.8526 43.1608C18.1937 33.9272 16.8821 25.4357 22.1289 19.7868C27.9853 13.4816 37.2747 8.24217 52.0859 11.6871C66.809 15.1116 79.7431 25.9655 91.0335 35.8134C101.973 45.3555 112.303 55.6928 112.682 64.5412C113.083 73.9013 104.968 79.5803 92.9773 81.1783C80.5075 82.8402 64.1971 81.2722 48.9926 73.0292Z"
+                    stroke="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.2"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M28.3784 34.6112C37.4634 20.2034 51.4336 15.1809 63.9394 11.2318C75.0481 7.72386 85.3641 7.7292 92.4327 14.384C100.323 21.812 107.028 32.7919 103.324 48.3101C99.6413 63.7361 86.8344 75.9655 75.1995 86.578C63.9259 96.861 51.6617 106.347 40.8789 105.268C29.4725 104.126 22.2705 94.3482 19.9171 81.0463C17.4696 67.2125 18.8335 49.7484 28.3784 34.6112Z"
+                    stroke="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.5"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M60.5074 10.0491C73.2552 10.7738 81.7437 21.1996 88.9877 30.8297C95.4223 39.384 99.2811 49.1012 97.6106 59.3743C95.746 70.841 91.1337 83.1225 79.68 88.0681C68.2944 92.9843 55.5662 87.5708 44.3258 82.3822C33.4344 77.3548 22.6892 70.9612 19.3521 60.2209C15.822 48.8595 19.4687 36.7633 27.2167 27.3179C35.2745 17.4947 47.1142 9.28763 60.5074 10.0491Z"
+                    stroke="#B1CF1F"
+                  />
+                </g>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M53.5771 37.4999L58 35.5338L69.9224 40.8337L65.4975 42.8003C65.4701 42.7867 65.4424 42.7737 65.4144 42.7612L53.5771 37.4999ZM50.4997 38.8679L46.0775 40.8336L58 46.1325L62.4222 44.1671L50.4997 38.8679ZM44.25 42.7566V58.354L56.75 63.9105V48.3121L44.25 42.7566ZM59.25 63.9105L71.75 58.354V42.7566L66.75 44.9788V50.8334C66.75 51.5238 66.1903 52.0834 65.5 52.0834C64.8096 52.0834 64.25 51.5238 64.25 50.8334V46.0899L59.25 48.3121V63.9105ZM41.75 41.4833V58.5167C41.7501 58.9516 41.8762 59.3775 42.1132 59.7422C42.3501 60.1069 42.6882 60.3954 43.0856 60.5722L57.0856 66.7956C57.3734 66.9236 57.685 66.9898 58 66.9898C58.315 66.9898 58.6271 66.9233 58.915 66.7953L72.915 60.572C73.3123 60.3951 73.6499 60.1069 73.8868 59.7422C74.1237 59.3775 74.2499 58.9516 74.25 58.5167V41.483C74.2499 41.0481 74.1237 40.6226 73.8868 40.2578C73.6499 39.8931 73.3117 39.6046 72.9144 39.4278L58.9144 33.2044C58.6266 33.0764 58.315 33.0103 58 33.0103C57.6849 33.0103 57.3728 33.0767 57.085 33.2047L43.085 39.428C42.6877 39.6049 42.3501 39.8931 42.1132 40.2578C41.8762 40.6226 41.7501 41.0484 41.75 41.4833Z"
+                  fill="#B1CF1F"
+                />
+                <defs>
+                  <clipPath id="clip0_1_217">
+                    <rect width="117" height="108" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-2xl font-semibold mb-1">Barang Berkah</h1>
+              <p className="text-base text-[#636363] mb-6">
+                Yuk berikan barang bekas yang masih layak pakai untuk sahabat
+                kita.
+              </p>
+              <p className="text-[#389ED9] font-medium">Selengkapnya</p>
+            </div>
+          </div>
+
+          <div className="flex gap-4">
+            <div>
+              <svg
+                width="117"
+                height="108"
+                viewBox="0 0 117 108"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_1_231)">
+                  <path
+                    opacity="0.1"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M92.6401 69.2336C85.0663 82.1997 72.0657 86.6402 60.3847 90.1206C50.0087 93.2122 40.1152 93.1316 32.8103 87.06C24.6567 80.283 17.3585 70.3017 19.6844 56.2917C21.9965 42.3649 33.3118 31.3967 43.6309 21.8824C53.6296 12.6636 64.6413 4.17314 75.0674 5.22831C86.0964 6.34449 93.7761 15.2424 97.0843 27.2921C100.525 39.8237 100.597 55.6111 92.6401 69.2336Z"
+                    fill="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.1"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M50.5283 79.403C34.1041 78.2911 23.4245 70.391 14.3297 63.1215C6.2509 56.6641 1.52464 49.4885 3.94482 42.1686C6.64621 33.9982 12.9128 25.3683 27.8142 22.3373C42.627 19.3243 58.9047 23.8115 73.2692 28.0678C87.1877 32.192 100.882 37.2931 104.909 45.1812C109.169 53.5254 104.153 62.0666 93.9147 68.5093C83.2675 75.2096 67.7839 80.5712 50.5283 79.403Z"
+                    fill="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.2"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M48.9926 73.0292C34.5208 65.1834 28.0973 53.5557 22.8526 43.1608C18.1937 33.9272 16.8821 25.4357 22.1289 19.7868C27.9853 13.4816 37.2747 8.24217 52.0859 11.6871C66.809 15.1116 79.7431 25.9655 91.0335 35.8134C101.973 45.3555 112.303 55.6928 112.682 64.5412C113.083 73.9013 104.968 79.5803 92.9773 81.1783C80.5075 82.8402 64.1971 81.2722 48.9926 73.0292Z"
+                    stroke="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.2"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M28.3784 34.6112C37.4634 20.2034 51.4336 15.1809 63.9394 11.2318C75.0481 7.72386 85.3641 7.7292 92.4327 14.384C100.323 21.812 107.028 32.7919 103.324 48.3101C99.6413 63.7361 86.8344 75.9655 75.1995 86.578C63.9259 96.861 51.6617 106.347 40.8789 105.268C29.4725 104.126 22.2705 94.3482 19.9171 81.0463C17.4696 67.2125 18.8335 49.7484 28.3784 34.6112Z"
+                    stroke="#B1CF1F"
+                  />
+                  <path
+                    opacity="0.5"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M60.5074 10.0491C73.2552 10.7738 81.7437 21.1996 88.9877 30.8297C95.4223 39.384 99.2811 49.1012 97.6106 59.3743C95.746 70.841 91.1337 83.1225 79.68 88.0681C68.2944 92.9843 55.5662 87.5708 44.3258 82.3822C33.4344 77.3548 22.6892 70.9612 19.3521 60.2209C15.822 48.8595 19.4687 36.7633 27.2167 27.3179C35.2745 17.4947 47.1142 9.28763 60.5074 10.0491Z"
+                    stroke="#B1CF1F"
+                  />
+                </g>
+                <path
+                  d="M58 35L51.75 40H64.25L58 35ZM48.625 36.25L44.25 42.07V63.75H71.75V42.07L67.375 36.25H61.125L64.25 38.75H66.125L68 41.25H48L49.875 38.75H51.75L54.875 36.25H48.625ZM46.75 43.75H69.25V61.25H46.75V43.75ZM54.0162 46.25C53.3275 46.3125 52.8187 46.9288 52.8825 47.6175C52.9462 48.305 53.5612 48.8138 54.25 48.75H61.75C62.2 48.755 62.6187 48.52 62.8487 48.13C62.9591 47.9384 63.0171 47.7211 63.0171 47.5C63.0171 47.2789 62.9591 47.0616 62.8487 46.87C62.6187 46.48 62.1987 46.245 61.75 46.25H54.015H54.0162Z"
+                  fill="#B1CF1F"
+                />
+                <defs>
+                  <clipPath id="clip0_1_231">
+                    <rect width="117" height="108" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-2xl font-semibold mb-1">Amazing Box</h1>
+              <p className="text-base text-[#636363] mb-6">
+                Isi penuh Amazing Box selama 1 bulan, kembalikan kepada kami.
+              </p>
+              <p className="text-[#389ED9] font-medium">Selengkapnya</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Section Program */}
+      <div
+        className="w-full"
+        style={{
+          backgroundImage: `url('/BG.svg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          height: "150vh",
+        }}
+      >
+        <div className="content-section px-[20px] md:my-20 my-10">
+          <div className="md:flex justify-between items-center mb-8 pt-7">
+            <div>
+              <h1 className="md:text-[48px] text-[32px] font-semibold mb-2">
+                Program Pilihan
+              </h1>
+              <p className="text-[#636363]">
+                Pilih dan salurkan donasi melalui program-program kami yang
+                berarti bagi sahabat Cinta quran.
+              </p>
+            </div>
+            <div className="flex gap-6 justify-center md:mt-0 mt-8">
+              <svg
+                width="56"
+                height="56"
+                viewBox="0 0 56 56"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="0.5"
+                  y="0.5"
+                  width="55"
+                  height="55"
+                  rx="27.5"
+                  fill="white"
+                />
+                <rect
+                  x="0.5"
+                  y="0.5"
+                  width="55"
+                  height="55"
+                  rx="27.5"
+                  stroke="#389ED9"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M33.5999 19.5999L25.1999 27.9999L33.5999 36.3999L30.7999 39.1999L19.5999 27.9999L30.7999 16.7999L33.5999 19.5999Z"
+                  fill="#389ED9"
+                />
+              </svg>
+
+              <svg
+                width="56"
+                height="56"
+                viewBox="0 0 56 56"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="-0.5"
+                  y="0.5"
+                  width="55"
+                  height="55"
+                  rx="27.5"
+                  transform="matrix(-1 0 0 1 55 0)"
+                  fill="white"
+                />
+                <rect
+                  x="-0.5"
+                  y="0.5"
+                  width="55"
+                  height="55"
+                  rx="27.5"
+                  transform="matrix(-1 0 0 1 55 0)"
+                  stroke="#389ED9"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M22.4 19.5999L30.8 27.9999L22.4 36.3999L25.2 39.1999L36.4 27.9999L25.2 16.7999L22.4 19.5999Z"
+                  fill="#389ED9"
+                />
+              </svg>
+            </div>
+          </div>
+
+          {/* Collage */}
+          <div className="w-full">
+            <div className="md:flex flex-row gap-6 md:space-y-0 space-y-6">
+              <div className="max-w-[744px] max-h-[420px] hover-image relative">
+                <img
+                  className="w-full h-full rounded-3xl"
+                  src="/col1.png"
+                  alt=""
+                />
+                <div className="overlay px-8 text-white">
+                  <h1 className="md:text-[32px] text-xl font-semibold md:mt-[276px] mt-[50px] mb-2">
+                    Indonesia Bisa Baca Quran
+                  </h1>
+                  <p>
+                    Sebuah Fakta mengejutkan menyatakan bahwa 53,57% (BPS 2018).
+                    kaum muslimin di Indonesia tidak bisa membaca Al-Quran.
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center justify-between text-[#389ED9] text-base font-semibold mb-4">
-                <span>Rp 25.000.000</span>
-                <span>2 Hari Lagi</span>
+              <div className="max-w-[361px] max-h-[420px] hover-image relative">
+                <img
+                  className="w-full h-full rounded-3xl"
+                  src="/col2.png"
+                  alt=""
+                />
+                <div className="overlay px-8 text-white">
+                  <h1 className="md:text-[32px] text-xl font-semibold mt-[276px] mb-2">
+                    CintaQuran Call
+                  </h1>
+                  <p>Cinta Quran Call merupakan layanan pendampingan.</p>
+                </div>
               </div>
-              <div>
-                <div className="bg-[#EDF4F8] h-1 w-full rounded-[100px]">
-                  <div className="bg-[#AFCD21] h-1 w-1/2 rounded-[100px] relative">
-                    <div className="bg-[#AFCD21] w-2 h-2 rounded-full absolute right-0 -top-[2px]"></div>
-                  </div>
+            </div>
+            <div
+              className="mt-6 flex gap-6 md:overflow-hidden overflow-x-scroll"
+              ref={scrollRef}
+            >
+              <div className="hover-image relative">
+                <img
+                  className="min-w-[360px] h-[200px] rounded-3xl"
+                  src="/col3.png"
+                  alt=""
+                />
+                <div className="overlay px-8">
+                  <h1 className="md:text-[28px] text-white text-xl font-semibold mt-[136px] mb-2">
+                    Kajian Perkantoran
+                  </h1>
+                </div>
+              </div>
+              <div className="hover-image relative">
+                <img
+                  className="min-w-[360px] h-[200px] rounded-3xl"
+                  src="/col4.png"
+                  alt=""
+                />
+                <div className="overlay px-8">
+                  <h1 className="md:text-[28px] text-white text-xl font-semibold mt-[136px] mb-2">
+                    Majelis Cinta Quran
+                  </h1>
+                </div>
+              </div>
+              <div className="hover-image relative">
+                <img
+                  className="min-w-[360px] h-[200px] rounded-3xl"
+                  src="/col5.png"
+                  alt=""
+                />
+                <div className="overlay px-8">
+                  <h1 className="md:text-[28px] text-white text-xl font-semibold mt-[136px] mb-2">
+                    Cinta Quran TV
+                  </h1>
                 </div>
               </div>
             </div>
           </div>
-
-          <div className="max-w-[369.18px] shadow-xl rounded-lg pb-[26px] animate-fadeIn">
-            <img
-              src="/category1.png"
-              alt=""
-              className="w-[369.18px] h-[369.18px] rounded-t-lg"
-            />
-            <p className="mt-6 text-lg font-semibold mb-9 px-3.5">
-              Sedekah Beras untuk seluruh para keluarga di afrika selatan
-            </p>
-            <div className="px-3.5">
-              <div className="flex items-center justify-between text-[#636363] text-sm mb-1">
-                <span>Dana Terkumpul</span>
-                <span>Sisa Waktu</span>
-              </div>
-              <div className="flex items-center justify-between text-[#389ED9] text-base font-semibold mb-4">
-                <span>Rp 25.000.000</span>
-                <span>2 Hari Lagi</span>
-              </div>
-              <div>
-                <div className="bg-[#EDF4F8] h-1 w-full rounded-[100px]">
-                  <div className="bg-[#AFCD21] h-1 w-1/2 rounded-[100px] relative">
-                    <div className="bg-[#AFCD21] w-2 h-2 rounded-full absolute right-0 -top-[2px]"></div>
-                  </div>
-                </div>
-              </div>
+          {/* Kajian Inspiratig */}
+          <div className="my-20">
+            <div className="text-center mb-8">
+              <h1 className="md:text-[48px] text-3xl font-semibold mb-4">
+                Kajian Inspiratif
+              </h1>
+              <p className="text-[#636363]">
+                Program kajian inspiratif dari kami untuk menemani aktivitas
+                Sahabat Cinta Qur’an.
+              </p>
             </div>
-          </div>
-
-          <div className="max-w-[369.18px] shadow-xl rounded-lg pb-[26px] animate-fadeIn">
-            <img
-              src="/category1.png"
-              alt=""
-              className="w-[369.18px] h-[369.18px] rounded-t-lg"
-            />
-            <p className="mt-6 text-lg font-semibold mb-9 px-3.5">
-              Sedekah Beras untuk seluruh para keluarga di afrika selatan
-            </p>
-            <div className="px-3.5">
-              <div className="flex items-center justify-between text-[#636363] text-sm mb-1">
-                <span>Dana Terkumpul</span>
-                <span>Sisa Waktu</span>
-              </div>
-              <div className="flex items-center justify-between text-[#389ED9] text-base font-semibold mb-4">
-                <span>Rp 25.000.000</span>
-                <span>2 Hari Lagi</span>
-              </div>
-              <div>
-                <div className="bg-[#EDF4F8] h-1 w-full rounded-[100px]">
-                  <div className="bg-[#AFCD21] h-1 w-1/2 rounded-[100px] relative">
-                    <div className="bg-[#AFCD21] w-2 h-2 rounded-full absolute right-0 -top-[2px]"></div>
+            {/* Menu */}
+            <div className="flex items-center gap-6 overflow-auto mb-8">
+              <Category logo={logoAllCategory} name="Semua Kajian" active />
+              <Category logo={logoLive} name="Berlangsung" />
+              <Category logo={logoIsComming} name="Akan Datang" />
+              <Category logo={logoOffice} name="Perkantoran" />
+              <Category logo={logoOnline} name="Online" />
+              <Category logo={logoMore} name="Lainnya" />
+            </div>
+            {/* Collage */}
+            <div className="w-full">
+              <div className="md:flex flex-row gap-6 md:space-y-0 space-y-6">
+                <div className="max-w-[552px] max-h-[520px] hover-image relative">
+                  <img
+                    className="w-full h-full rounded-3xl"
+                    src="/kajian1.png"
+                    alt=""
+                  />
+                  <div className="overlay-kajian px-8 text-white">
+                    <div className="inline-block mt-6">
+                      <div className="flex items-center bg-[#FF3C5A] gap-3 py-3 px-6 rounded-[100px]">
+                        <div>
+                          <svg
+                            width="20"
+                            height="15"
+                            viewBox="0 0 20 15"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M4.34297 0.438001C4.43595 0.530874 4.50971 0.641162 4.56003 0.76256C4.61036 0.883958 4.63626 1.01409 4.63626 1.1455C4.63626 1.27692 4.61036 1.40704 4.56003 1.52844C4.50971 1.64984 4.43595 1.76013 4.34297 1.853C2.84241 3.35382 1.99943 5.38921 1.99943 7.5115C1.99943 9.6338 2.84241 11.6692 4.34297 13.17C4.43582 13.2629 4.50945 13.3732 4.55968 13.4946C4.6099 13.6159 4.63572 13.746 4.63568 13.8774C4.63563 14.0087 4.60971 14.1388 4.55941 14.2601C4.5091 14.3814 4.43538 14.4917 4.34247 14.5845C4.24956 14.6773 4.13928 14.751 4.01791 14.8012C3.89654 14.8514 3.76647 14.8773 3.63512 14.8772C3.50377 14.8772 3.37372 14.8512 3.25239 14.8009C3.13105 14.7506 3.02082 14.6769 2.92797 14.584C-0.978026 10.678 -0.978026 4.344 2.92797 0.438001C3.02085 0.345025 3.13114 0.271265 3.25253 0.220941C3.37393 0.170617 3.50406 0.144714 3.63547 0.144714C3.76689 0.144714 3.89702 0.170617 4.01841 0.220941C4.13981 0.271265 4.2501 0.345025 4.34297 0.438001ZM17.074 0.438001C20.98 4.345 20.98 10.678 17.074 14.584C16.8854 14.7662 16.6328 14.867 16.3706 14.8647C16.1084 14.8624 15.8576 14.7572 15.6722 14.5718C15.4867 14.3864 15.3816 14.1356 15.3793 13.8734C15.377 13.6112 15.4778 13.3586 15.66 13.17C17.1605 11.6692 18.0035 9.6338 18.0035 7.5115C18.0035 5.38921 17.1605 3.35382 15.66 1.853C15.4723 1.66549 15.3669 1.41112 15.3668 1.14585C15.3667 0.880584 15.472 0.626142 15.6595 0.438501C15.847 0.25086 16.1013 0.145392 16.3666 0.145298C16.6319 0.145205 16.8863 0.250493 17.074 0.438001ZM7.30997 3.312C7.49745 3.49953 7.60276 3.75384 7.60276 4.019C7.60276 4.28417 7.49745 4.53847 7.30997 4.726C6.94593 5.09001 6.65715 5.52217 6.46012 5.99779C6.2631 6.47341 6.16169 6.98319 6.16169 7.498C6.16169 8.01282 6.2631 8.52259 6.46012 8.99821C6.65715 9.47383 6.94593 9.90599 7.30997 10.27C7.40548 10.3622 7.48167 10.4726 7.53408 10.5946C7.58648 10.7166 7.61407 10.8478 7.61522 10.9806C7.61638 11.1134 7.59108 11.2451 7.5408 11.368C7.49052 11.4909 7.41626 11.6025 7.32237 11.6964C7.22848 11.7903 7.11682 11.8645 6.99393 11.9148C6.87103 11.9651 6.73935 11.9904 6.60657 11.9893C6.47379 11.9881 6.34257 11.9605 6.22057 11.9081C6.09857 11.8557 5.98822 11.7795 5.89597 11.684C4.7858 10.5738 4.16212 9.06805 4.16212 7.498C4.16212 5.92795 4.7858 4.42221 5.89597 3.312C6.0835 3.12453 6.33781 3.01921 6.60297 3.01921C6.86814 3.01921 7.12245 3.12453 7.30997 3.312ZM14.269 3.312C15.3791 4.42221 16.0028 5.92795 16.0028 7.498C16.0028 9.06805 15.3791 10.5738 14.269 11.684C14.1761 11.7769 14.0659 11.8506 13.9446 11.9009C13.8232 11.9512 13.6932 11.9772 13.5618 11.9772C13.4305 11.9773 13.3004 11.9514 13.179 11.9012C13.0577 11.851 12.9474 11.7773 12.8545 11.6845C12.7616 11.5917 12.6879 11.4814 12.6375 11.3601C12.5872 11.2388 12.5613 11.1087 12.5613 10.9774C12.5612 10.846 12.587 10.7159 12.6373 10.5946C12.6875 10.4732 12.7611 10.3629 12.854 10.27C13.218 9.90599 13.5068 9.47383 13.7038 8.99821C13.9009 8.52259 14.0023 8.01282 14.0023 7.498C14.0023 6.98319 13.9009 6.47341 13.7038 5.99779C13.5068 5.52217 13.218 5.09001 12.854 4.726C12.6665 4.53836 12.5612 4.28392 12.5613 4.01865C12.5614 3.75338 12.6668 3.49901 12.8545 3.3115C13.0421 3.12399 13.2966 3.0187 13.5618 3.0188C13.8271 3.01889 14.0815 3.12436 14.269 3.312ZM10.082 6.082C10.279 6.082 10.474 6.1208 10.656 6.19618C10.838 6.27156 11.0033 6.38205 11.1426 6.52134C11.2819 6.66063 11.3924 6.82599 11.4678 7.00798C11.5432 7.18996 11.582 7.38502 11.582 7.582C11.582 7.77898 11.5432 7.97404 11.4678 8.15603C11.3924 8.33801 11.2819 8.50337 11.1426 8.64266C11.0033 8.78195 10.838 8.89244 10.656 8.96782C10.474 9.0432 10.279 9.082 10.082 9.082C9.68415 9.082 9.30262 8.92397 9.02131 8.64266C8.74001 8.36136 8.58197 7.97983 8.58197 7.582C8.58197 7.18418 8.74001 6.80264 9.02131 6.52134C9.30262 6.24004 9.68415 6.082 10.082 6.082Z"
+                              fill="white"
+                            />
+                          </svg>
+                        </div>
+                        <div>Sedang Berlangsung</div>
+                      </div>
+                    </div>
+                    <p className="md:mt-[276px] mt-[50px] mb-1">
+                      Cinta Quran Creative Studio
+                    </p>
+                    <h1 className="md:text-[32px] text-xl font-semibold mb-4">
+                      Menyempurnakan Taqwa
+                    </h1>
+                    <h3 className="md:text-xl text-xl font-semibold text-[#AFCD21] mb-3">
+                      Kamis, 30 September 2021
+                    </h3>
+                    <h3 className="md:text-xl text-xl font-semibold">
+                      09:00 - 10:00
+                    </h3>
                   </div>
                 </div>
+                <div className="grid grid-cols-3 gap-6">
+                  {firstNineImages.map((src, index) => (
+                    <div key={index} className="hover-image">
+                      <img
+                        className="w-[168px] md:h-[158.12px] h-[120px] rounded-3xl"
+                        src={src}
+                        alt=""
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div
+                className="flex items-center gap-6 mt-6 md:overflow-hidden overflow-x-scroll"
+                ref={scrollRef}
+              >
+                {remainingImages.map((src, index) => (
+                  <div key={index} className="hover-image">
+                    <img
+                      className="min-w-[168px] min-h-[158.12px] rounded-3xl"
+                      src={src}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
-        <div className="flex justify-center gap-2">
-          <div className="h-1 w-8 rounded-[100px] bg-[#389ED9]"></div>
-          <div className="h-1 w-4 rounded-[100px] bg-[#D0D0D0]"></div>
-          <div className="h-1 w-4 rounded-[100px] bg-[#D0D0D0]"></div>
-          <div className="h-1 w-4 rounded-[100px] bg-[#D0D0D0]"></div>
+        {/* Section Amazing Group */}
+        <div
+          className="w-full md:h-[150vh] h-[50vh]"
+          style={{
+            backgroundImage: `url('/BG.svg')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <h1 className="md:text-[48px] text-[32px] font-semibold text-center mb-8">
+            Amazing Group
+          </h1>
+
+          <div className="sponsor-container">
+            <div className="flex gap-6 max-w-[1366px] mb-6">
+              <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
+                <img src="/group1.png" alt="" />
+              </div>
+              <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
+                <img src="/group2.png" alt="" />
+              </div>
+              <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
+                <img src="/group3.png" alt="" />
+              </div>
+              <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
+                <img src="/group4.png" alt="" />
+              </div>
+              <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
+                <img src="/group5.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div className="sponsor-container-right">
+            <div className="flex gap-6 max-w-[1366px] pb-20">
+              <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
+                <img src="/group1.png" alt="" />
+              </div>
+              <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
+                <img src="/group2.png" alt="" />
+              </div>
+              <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
+                <img src="/group3.png" alt="" />
+              </div>
+              <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
+                <img src="/group4.png" alt="" />
+              </div>
+              <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
+                <img src="/group5.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          {/* Banner Call To Action */}
+          <div className="md:mt-20 flex justify-center px-5 pb-20">
+            <div
+              className="w-[1128px] h-[272px] rounded-3xl relative"
+              style={{
+                backgroundImage: `url('/call-action.png')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              <div className="overlay-call-action">
+                <div className="md:max-w-[718px] max-w-[300px] py-[39px] pl-9">
+                  <h1 className="md:text-[32px] text-[18px] font-semibold text-white md:leading-[41px] mb-6">
+                    Mari bergabung menjadi keluarga Cinta Quran Foundation agar
+                    bisa berbagi dengan sesama
+                  </h1>
+                  <div className="inline-block bg-white rounded-[100px]">
+                    <div className="flex items-center gap-2.5 py-4 md:px-[109px] px-10">
+                      <button className="text-[#389ED9] font-semibold">
+                        Daftar Sekarang
+                      </button>
+                      <svg
+                        width="21"
+                        height="20"
+                        viewBox="0 0 21 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          x="0.863281"
+                          width="20"
+                          height="20"
+                          rx="10"
+                          fill="#389ED9"
+                        />
+                        <path
+                          d="M12.2168 6.81793L15.0453 9.64643C15.139 9.74019 15.1917 9.86735 15.1917 9.99993C15.1917 10.1325 15.139 10.2597 15.0453 10.3534L12.2168 13.1819C12.1225 13.273 11.9962 13.3234 11.8651 13.3223C11.734 13.3211 11.6086 13.2685 11.5159 13.1758C11.4232 13.0831 11.3706 12.9577 11.3694 12.8266C11.3683 12.6955 11.4187 12.5692 11.5098 12.4749L13.4848 10.4999H6.86328C6.73067 10.4999 6.6035 10.4472 6.50973 10.3535C6.41596 10.2597 6.36328 10.1325 6.36328 9.99993C6.36328 9.86732 6.41596 9.74014 6.50973 9.64637C6.6035 9.55261 6.73067 9.49993 6.86328 9.49993H13.4848L11.5098 7.52493C11.462 7.4788 11.4239 7.42363 11.3977 7.36263C11.3715 7.30163 11.3577 7.23602 11.3572 7.16963C11.3566 7.10324 11.3692 7.0374 11.3944 6.97595C11.4195 6.9145 11.4566 6.85868 11.5036 6.81173C11.5505 6.76478 11.6064 6.72766 11.6678 6.70252C11.7293 6.67738 11.7951 6.66473 11.8615 6.6653C11.9279 6.66588 11.9935 6.67967 12.0545 6.70588C12.1155 6.73208 12.1707 6.77017 12.2168 6.81793Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
