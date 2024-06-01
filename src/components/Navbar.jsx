@@ -1,10 +1,12 @@
 import React from "react";
-import navLogo from "../assets/logo.svg";
 
 function Navbar() {
   return (
     <nav className="py-3 px-6 md:px-12 lg:px-20 xl:px-32 flex items-center justify-between fixed top-0 left-0 right-0 bg-white shadow-md z-10">
-      <img src={navLogo} alt="" />
+      <img
+        src="https://tegarmine.github.io/tesghp/assets/logo-hoOvhjiO.svg"
+        alt=""
+      />
       <div className="hidden md:block">
         <ul className="flex items-center space-x-6">
           <li>
