@@ -7,7 +7,9 @@ function App() {
   const [majelisCintaQuran, setmajelisCintaQuran] = useState(0);
   const [kajianPerkantoran, setkajianPerkantoran] = useState(0);
   const sectionRef = useRef(null);
-  const images = Array(15).fill("/kajian2.png");
+  const images = Array(15).fill(
+    "https://tegarmine.github.io/tesghp/kajian2.png"
+  );
   const firstNineImages = images.slice(0, 9);
   const remainingImages = images.slice(9);
 
@@ -275,7 +277,7 @@ function App() {
       <div
         className="w-full md:h-[150vh]"
         style={{
-          backgroundImage: `url('/BG.svg')`,
+          backgroundImage: `url('https://tegarmine.github.io/tesghp/BG.svg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -814,7 +816,7 @@ function App() {
       <div
         className="w-full"
         style={{
-          backgroundImage: `url('/BG.svg')`,
+          backgroundImage: `url('https://tegarmine.github.io/tesghp/BG.svg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -905,7 +907,7 @@ function App() {
               <div className="max-w-[744px] max-h-[420px] hover-image relative">
                 <img
                   className="w-full h-full rounded-3xl"
-                  src="/col1.png"
+                  src="https://tegarmine.github.io/tesghp/col1.png"
                   alt=""
                 />
                 <div className="overlay px-8 text-white">
@@ -921,7 +923,7 @@ function App() {
               <div className="max-w-[361px] max-h-[420px] hover-image relative">
                 <img
                   className="w-full h-full rounded-3xl"
-                  src="/col2.png"
+                  src="https://tegarmine.github.io/tesghp/col2.png"
                   alt=""
                 />
                 <div className="overlay px-8 text-white">
@@ -939,7 +941,7 @@ function App() {
               <div className="hover-image relative">
                 <img
                   className="min-w-[360px] h-[200px] rounded-3xl"
-                  src="/col3.png"
+                  src="https://tegarmine.github.io/tesghp/col3.png"
                   alt=""
                 />
                 <div className="overlay px-8">
@@ -951,7 +953,7 @@ function App() {
               <div className="hover-image relative">
                 <img
                   className="min-w-[360px] h-[200px] rounded-3xl"
-                  src="/col4.png"
+                  src="https://tegarmine.github.io/tesghp/col4.png"
                   alt=""
                 />
                 <div className="overlay px-8">
@@ -963,7 +965,7 @@ function App() {
               <div className="hover-image relative">
                 <img
                   className="min-w-[360px] h-[200px] rounded-3xl"
-                  src="/col5.png"
+                  src="https://tegarmine.github.io/tesghp/col5.png"
                   alt=""
                 />
                 <div className="overlay px-8">
@@ -1000,7 +1002,7 @@ function App() {
                 <div className="max-w-[552px] max-h-[520px] hover-image relative">
                   <img
                     className="w-full h-full rounded-3xl"
-                    src="/kajian1.png"
+                    src="https://tegarmine.github.io/tesghp/kajian1.png"
                     alt=""
                   />
                   <div className="overlay-kajian px-8 text-white">
@@ -1070,7 +1072,7 @@ function App() {
         <div
           className="w-full md:h-[150vh] h-[50vh]"
           style={{
-            backgroundImage: `url('/BG.svg')`,
+            backgroundImage: `url('https://tegarmine.github.io/tesghp/BG.svg')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -1083,19 +1085,34 @@ function App() {
           <div className="sponsor-container">
             <div className="flex gap-6 max-w-[1366px] mb-6">
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
-                <img src="/group1.png" alt="" />
+                <img
+                  src="https://tegarmine.github.io/tesghp/group1.png"
+                  alt=""
+                />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
-                <img src="/group2.png" alt="" />
+                <img
+                  src="https://tegarmine.github.io/tesghp/group2.png"
+                  alt=""
+                />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
-                <img src="/group3.png" alt="" />
+                <img
+                  src="https://tegarmine.github.io/tesghp/group3.png"
+                  alt=""
+                />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
-                <img src="/group4.png" alt="" />
+                <img
+                  src="https://tegarmine.github.io/tesghp/group4.png"
+                  alt=""
+                />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
-                <img src="/group5.png" alt="" />
+                <img
+                  src="https://tegarmine.github.io/tesghp/group5.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -1103,19 +1120,34 @@ function App() {
           <div className="sponsor-container-right">
             <div className="flex gap-6 max-w-[1366px] pb-20">
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
-                <img src="/group1.png" alt="" />
+                <img
+                  src="https://tegarmine.github.io/tesghp/group1.png"
+                  alt=""
+                />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
-                <img src="/group2.png" alt="" />
+                <img
+                  src="https://tegarmine.github.io/tesghp/group2.png"
+                  alt=""
+                />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
-                <img src="/group3.png" alt="" />
+                <img
+                  src="https://tegarmine.github.io/tesghp/group3.png"
+                  alt=""
+                />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
-                <img src="/group4.png" alt="" />
+                <img
+                  src="https://tegarmine.github.io/tesghp/group4.png"
+                  alt=""
+                />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
-                <img src="/group5.png" alt="" />
+                <img
+                  src="https://tegarmine.github.io/tesghp/group5.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -1125,7 +1157,7 @@ function App() {
             <div
               className="w-[1128px] h-[272px] rounded-3xl relative"
               style={{
-                backgroundImage: `url('/call-action.png')`,
+                backgroundImage: `url('https://tegarmine.github.io/tesghp/call-action.png')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -1165,6 +1197,228 @@ function App() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="content-section text-[#28292B] font-normal grid md:grid-cols-3 grid-cols-1 px-5 md:gap-[51px] md:pb-0 pb-10">
+            <div className="max-w-[368px]">
+              <img
+                className="mb-[23px]"
+                src="https://tegarmine.github.io/tesghp/assets/logo-hoOvhjiO.svg"
+                alt=""
+              />
+              <p className="mb-[30px]">
+                Cinta Quran Foundation adalah lembaga independen yang
+                mendakwahkan Alquran sebagai solusi dan inspirasi untuk negeri.
+              </p>
+              <button className="font-semibold text-white bg-[#389ED9] py-[11px] rounded-[100px] px-[16px] flex items-center gap-2.5 mb-[64px]">
+                <span>
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      y="-0.0012207"
+                      width="20"
+                      height="20"
+                      rx="10"
+                      fill="white"
+                    />
+                    <path
+                      d="M11.3535 6.81683L14.182 9.64533C14.2757 9.73909 14.3284 9.86625 14.3284 9.99883C14.3284 10.1314 14.2757 10.2586 14.182 10.3523L11.3535 13.1808C11.2592 13.2719 11.1329 13.3223 11.0018 13.3212C10.8707 13.32 10.7453 13.2674 10.6526 13.1747C10.5599 13.082 10.5073 12.9566 10.5062 12.8255C10.505 12.6944 10.5554 12.5681 10.6465 12.4738L12.6215 10.4988H6C5.86739 10.4988 5.74021 10.4462 5.64645 10.3524C5.55268 10.2586 5.5 10.1314 5.5 9.99883C5.5 9.86622 5.55268 9.73904 5.64645 9.64528C5.74021 9.55151 5.86739 9.49883 6 9.49883H12.6215L10.6465 7.52383C10.5987 7.47771 10.5607 7.42253 10.5344 7.36153C10.5082 7.30053 10.4945 7.23492 10.4939 7.16853C10.4933 7.10214 10.5059 7.0363 10.5311 6.97485C10.5562 6.9134 10.5934 6.85758 10.6403 6.81063C10.6872 6.76368 10.7431 6.72656 10.8045 6.70142C10.866 6.67628 10.9318 6.66363 10.9982 6.6642C11.0646 6.66478 11.1302 6.67857 11.1912 6.70478C11.2522 6.73098 11.3074 6.76907 11.3535 6.81683Z"
+                      fill="#389ED9"
+                    />
+                  </svg>
+                </span>
+                Lihat Laporan CQ Foundation
+              </button>
+            </div>
+
+            <div className="max-w-[368px] flex justify-between md:mb-0 mb-14">
+              <div>
+                <ul className="space-y-2">
+                  <li>Program</li>
+                  <li>Donasi</li>
+                  <li>Kajian</li>
+                  <li>Kemitraan</li>
+                  <li>Inspirasi</li>
+                </ul>
+              </div>
+              <div>
+                <ul className="space-y-2">
+                  <li>Volunteer</li>
+                  <li>Tentang Kami</li>
+                  <li>FAQ</li>
+                  <li>Syarat & Ketentuan</li>
+                  <li>Kebijakan Privasi</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex gap-4 mb-4">
+                <div>
+                  <svg
+                    width="18"
+                    height="23"
+                    viewBox="0 0 18 23"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 22.4779L2.636 16.1139C1.37734 14.8552 0.520187 13.2516 0.172928 11.5058C-0.17433 9.75995 0.00390685 7.95035 0.685099 6.30582C1.36629 4.66129 2.51984 3.25569 3.99988 2.26677C5.47992 1.27784 7.21998 0.75 9 0.75C10.78 0.75 12.5201 1.27784 14.0001 2.26677C15.4802 3.25569 16.6337 4.66129 17.3149 6.30582C17.9961 7.95035 18.1743 9.75995 17.8271 11.5058C17.4798 13.2516 16.6227 14.8552 15.364 16.1139L9 22.4779ZM13.95 14.6999C14.9289 13.7209 15.5955 12.4736 15.8656 11.1158C16.1356 9.75795 15.9969 8.35052 15.4671 7.07148C14.9373 5.79244 14.04 4.69923 12.8889 3.93009C11.7378 3.16095 10.3844 2.75043 9 2.75043C7.61557 2.75043 6.26222 3.16095 5.11109 3.93009C3.95996 4.69923 3.06275 5.79244 2.53292 7.07148C2.00308 8.35052 1.86442 9.75795 2.13445 11.1158C2.40449 12.4736 3.07111 13.7209 4.05 14.6999L9 19.6499L13.95 14.6999ZM9 11.7499C8.46957 11.7499 7.96086 11.5392 7.58579 11.1641C7.21072 10.7891 7 10.2804 7 9.74992C7 9.21949 7.21072 8.71078 7.58579 8.33571C7.96086 7.96064 8.46957 7.74992 9 7.74992C9.53044 7.74992 10.0391 7.96064 10.4142 8.33571C10.7893 8.71078 11 9.21949 11 9.74992C11 10.2804 10.7893 10.7891 10.4142 11.1641C10.0391 11.5392 9.53044 11.7499 9 11.7499Z"
+                      fill="#28292B"
+                    />
+                  </svg>
+                </div>
+                <p>
+                  Jl. Parikesit Raya No.35-37 Bantarjati, Bogor Utara, Kota
+                  Bogor 16153, Jawa Barat, Indonesia.
+                </p>
+              </div>
+              <div className="flex gap-4 mb-4">
+                <div>
+                  <svg
+                    width="20"
+                    height="19"
+                    viewBox="0 0 20 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 0.75H19C19.2652 0.75 19.5196 0.855357 19.7071 1.04289C19.8946 1.23043 20 1.48478 20 1.75V17.75C20 18.0152 19.8946 18.2696 19.7071 18.4571C19.5196 18.6446 19.2652 18.75 19 18.75H1C0.734784 18.75 0.48043 18.6446 0.292893 18.4571C0.105357 18.2696 0 18.0152 0 17.75V1.75C0 1.48478 0.105357 1.23043 0.292893 1.04289C0.48043 0.855357 0.734784 0.75 1 0.75ZM18 4.988L10.072 12.088L2 4.966V16.75H18V4.988ZM2.511 2.75L10.061 9.412L17.502 2.75H2.511Z"
+                      fill="#28292B"
+                    />
+                  </svg>
+                </div>
+                <p>info@cintaquran.or.id</p>
+              </div>
+              <div className="flex gap-4 mb-4">
+                <div>
+                  <svg
+                    width="18"
+                    height="19"
+                    viewBox="0 0 18 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6.366 8.432C7.30434 10.0805 8.66952 11.4457 10.318 12.384L11.202 11.146C11.3442 10.9469 11.5543 10.8069 11.7928 10.7523C12.0313 10.6978 12.2814 10.7325 12.496 10.85C13.9103 11.6229 15.4722 12.0878 17.079 12.214C17.3298 12.2339 17.5638 12.3475 17.7345 12.5323C17.9052 12.7171 18 12.9594 18 13.211V17.673C18.0001 17.9206 17.9083 18.1594 17.7424 18.3432C17.5765 18.527 17.3483 18.6427 17.102 18.668C16.5698 18.7229 16.0351 18.7503 15.5 18.75C6.94 18.75 0 11.81 0 3.25C0 2.712 0.027 2.178 0.082 1.648C0.107255 1.4017 0.222984 1.17352 0.40679 1.00763C0.590595 0.841747 0.829406 0.749947 1.077 0.75H5.539C5.79056 0.749968 6.0329 0.844752 6.21768 1.01545C6.40247 1.18615 6.51613 1.42022 6.536 1.671C6.66222 3.27779 7.12708 4.83968 7.9 6.254C8.01746 6.46856 8.05221 6.71874 7.99767 6.9572C7.94312 7.19565 7.80306 7.40584 7.604 7.548L6.366 8.432ZM3.844 7.775L5.744 6.418C5.20478 5.25409 4.83535 4.01884 4.647 2.75H2.01C2.004 2.916 2.001 3.083 2.001 3.25C2 10.706 8.044 16.75 15.5 16.75C15.667 16.75 15.834 16.747 16 16.74V14.103C14.7312 13.9146 13.4959 13.5452 12.332 13.006L10.975 14.906C10.4287 14.6937 9.89801 14.4431 9.387 14.156L9.329 14.123C7.36758 13.0067 5.74328 11.3824 4.627 9.421L4.594 9.363C4.30691 8.85199 4.05628 8.32134 3.844 7.775Z"
+                      fill="#28292B"
+                    />
+                  </svg>
+                </div>
+                <p>(0251) 85 717 62</p>
+                <div className="flex items-center py-[10px] px-3 gap-[11px] bg-[#00C062] rounded-[100px]">
+                  <button className="text-white text-sm font-semibold">
+                    Hubungi Kami
+                  </button>
+                  <span>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M13.601 2.32605C12.8675 1.58573 11.9939 0.998793 11.0313 0.599454C10.0687 0.200115 9.03617 -0.00364427 7.994 4.93305e-05C3.627 4.93305e-05 0.068 3.55805 0.064 7.92605C0.064 9.32505 0.43 10.686 1.121 11.891L0 16L4.204 14.898C5.367 15.531 6.66993 15.8627 7.994 15.863H7.998C12.366 15.863 15.924 12.305 15.928 7.93305C15.929 6.89109 15.7238 5.85924 15.3243 4.89693C14.9247 3.93462 14.3387 3.06088 13.6 2.32605H13.601ZM7.994 14.521C6.813 14.5214 5.6537 14.2036 4.638 13.601L4.398 13.457L1.904 14.111L2.57 11.6781L2.414 11.427C1.75381 10.3774 1.40465 9.16208 1.407 7.92205C1.407 4.29605 4.364 1.33805 7.998 1.33805C8.86374 1.3365 9.72123 1.50632 10.521 1.83774C11.3208 2.16916 12.0471 2.65561 12.658 3.26905C13.271 3.8801 13.757 4.60647 14.0879 5.40628C14.4188 6.20609 14.5881 7.06349 14.586 7.92905C14.582 11.568 11.625 14.521 7.994 14.521ZM11.609 9.58705C11.412 9.48805 10.439 9.00905 10.256 8.94105C10.074 8.87605 9.941 8.84205 9.811 9.04005C9.678 9.23705 9.298 9.68605 9.184 9.81505C9.07 9.94805 8.952 9.96305 8.754 9.86505C8.557 9.76505 7.918 9.55705 7.162 8.88005C6.572 8.35505 6.177 7.70505 6.059 7.50805C5.945 7.31005 6.048 7.20405 6.147 7.10505C6.234 7.01705 6.344 6.87305 6.443 6.75905C6.543 6.64505 6.576 6.56105 6.641 6.42905C6.706 6.29505 6.675 6.18105 6.626 6.08205C6.576 5.98305 6.181 5.00605 6.014 4.61205C5.854 4.22305 5.691 4.27705 5.569 4.27205C5.455 4.26505 5.322 4.26505 5.189 4.26505C5.08856 4.26755 4.98973 4.29078 4.89869 4.33328C4.80766 4.37579 4.7264 4.43665 4.66 4.51205C4.478 4.71005 3.969 5.18905 3.969 6.16605C3.969 7.14305 4.679 8.08205 4.779 8.21505C4.877 8.34805 6.173 10.347 8.162 11.207C8.632 11.412 9.002 11.533 9.291 11.625C9.766 11.7771 10.195 11.754 10.537 11.705C10.917 11.647 11.708 11.225 11.875 10.762C12.039 10.298 12.039 9.90205 11.989 9.81905C11.94 9.73505 11.807 9.68605 11.609 9.58705Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold mb-[11.5px]">
+                  Ikuti kami di
+                </h4>
+                <div className="flex items-center gap-2">
+                  <div className="bg-[#636363] py-1.5 px-1.5 rounded-full">
+                    <svg
+                      width="12"
+                      height="13"
+                      viewBox="0 0 12 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 6.25C12 2.95 9.3 0.25 6 0.25C2.7 0.25 0 2.95 0 6.25C0 9.25 2.175 11.725 5.025 12.175V7.975H3.525V6.25H5.025V4.9C5.025 3.4 5.925 2.575 7.275 2.575C7.95 2.575 8.625 2.725 8.625 2.725V4.225H7.875C7.125 4.225 6.9 4.675 6.9 5.125V6.25H8.55L8.25 7.975H6.825V12.25C9.825 11.8 12 9.25 12 6.25Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <div className="bg-[#636363] py-1.5 px-1.5 rounded-full">
+                    <svg
+                      width="12"
+                      height="9"
+                      viewBox="0 0 12 9"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.7 1.32505C11.55 0.800049 11.175 0.425049 10.65 0.275049C9.75001 0.050049 5.925 0.0500488 5.925 0.0500488C5.925 0.0500488 2.175 0.050049 1.2 0.275049C0.675005 0.425049 0.299998 0.800049 0.149998 1.32505C-2.29105e-06 2.30005 0 4.25005 0 4.25005C0 4.25005 2.27988e-06 6.20005 0.225002 7.17505C0.375002 7.70005 0.749998 8.07505 1.275 8.22505C2.175 8.45005 6 8.45005 6 8.45005C6 8.45005 9.74999 8.45005 10.725 8.22505C11.25 8.07505 11.625 7.70005 11.775 7.17505C12 6.20005 12 4.25005 12 4.25005C12 4.25005 12 2.30005 11.7 1.32505ZM4.8 6.05005V2.45005L7.95 4.25005L4.8 6.05005Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <div className="bg-[#636363] py-1.5 px-1.5 rounded-full">
+                    <svg
+                      width="14"
+                      height="13"
+                      viewBox="0 0 14 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.99999 1.1499C8.64999 1.1499 8.87499 1.1499 9.54999 1.1499C10.15 1.1499 10.45 1.2999 10.675 1.3749C10.975 1.5249 11.2 1.5999 11.425 1.8249C11.65 2.0499 11.8 2.2749 11.875 2.5749C11.95 2.7999 12.025 3.0999 12.1 3.6999C12.1 4.3749 12.1 4.5249 12.1 6.2499C12.1 7.9749 12.1 8.1249 12.1 8.7999C12.1 9.3999 11.95 9.6999 11.875 9.9249C11.725 10.2249 11.65 10.4499 11.425 10.6749C11.2 10.8999 10.975 11.0499 10.675 11.1249C10.45 11.1999 10.15 11.2749 9.54999 11.3499C8.87499 11.3499 8.72499 11.3499 6.99999 11.3499C5.27499 11.3499 5.12499 11.3499 4.44999 11.3499C3.84999 11.3499 3.54999 11.1999 3.32499 11.1249C3.02499 10.9749 2.79999 10.8999 2.57499 10.6749C2.34999 10.4499 2.19999 10.2249 2.12499 9.9249C2.04999 9.6999 1.97499 9.3999 1.89999 8.7999C1.89999 8.1249 1.89999 7.9749 1.89999 6.2499C1.89999 4.5249 1.89999 4.3749 1.89999 3.6999C1.89999 3.0999 2.04999 2.7999 2.12499 2.5749C2.27499 2.2749 2.34999 2.0499 2.57499 1.8249C2.79999 1.5999 3.02499 1.4499 3.32499 1.3749C3.54999 1.2999 3.84999 1.2249 4.44999 1.1499C5.12499 1.1499 5.34999 1.1499 6.99999 1.1499ZM6.99999 0.0249023C5.27499 0.0249023 5.12499 0.0249023 4.44999 0.0249023C3.77499 0.0249023 3.32499 0.174903 2.94999 0.324903C2.57499 0.474903 2.19999 0.699903 1.82499 1.0749C1.44999 1.4499 1.29999 1.7499 1.07499 2.1999C0.924994 2.5749 0.849994 3.0249 0.774994 3.6999C0.774994 4.3749 0.774994 4.5999 0.774994 6.2499C0.774994 7.9749 0.774994 8.1249 0.774994 8.7999C0.774994 9.4749 0.924994 9.9249 1.07499 10.2999C1.22499 10.6749 1.44999 11.0499 1.82499 11.4249C2.19999 11.7999 2.49999 11.9499 2.94999 12.1749C3.32499 12.3249 3.77499 12.3999 4.44999 12.4749C5.12499 12.4749 5.34999 12.4749 6.99999 12.4749C8.64999 12.4749 8.87499 12.4749 9.54999 12.4749C10.225 12.4749 10.675 12.3249 11.05 12.1749C11.425 12.0249 11.8 11.7999 12.175 11.4249C12.55 11.0499 12.7 10.7499 12.925 10.2999C13.075 9.9249 13.15 9.4749 13.225 8.7999C13.225 8.1249 13.225 7.8999 13.225 6.2499C13.225 4.5999 13.225 4.3749 13.225 3.6999C13.225 3.0249 13.075 2.5749 12.925 2.1999C12.775 1.8249 12.55 1.4499 12.175 1.0749C11.8 0.699903 11.5 0.549903 11.05 0.324903C10.675 0.174903 10.225 0.0999023 9.54999 0.0249023C8.87499 0.0249023 8.72499 0.0249023 6.99999 0.0249023Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M6.99999 3.0249C5.19999 3.0249 3.77499 4.4499 3.77499 6.2499C3.77499 8.0499 5.19999 9.4749 6.99999 9.4749C8.79999 9.4749 10.225 8.0499 10.225 6.2499C10.225 4.4499 8.79999 3.0249 6.99999 3.0249ZM6.99999 8.3499C5.87499 8.3499 4.89999 7.4499 4.89999 6.2499C4.89999 5.1249 5.79999 4.1499 6.99999 4.1499C8.12499 4.1499 9.09999 5.0499 9.09999 6.2499C9.09999 7.3749 8.12499 8.3499 6.99999 8.3499Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M10.3 3.6999C10.7142 3.6999 11.05 3.36412 11.05 2.9499C11.05 2.53569 10.7142 2.1999 10.3 2.1999C9.88578 2.1999 9.54999 2.53569 9.54999 2.9499C9.54999 3.36412 9.88578 3.6999 10.3 3.6999Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <div className="bg-[#636363] py-1.5 px-1.5 rounded-full">
+                    <svg
+                      width="12"
+                      height="13"
+                      viewBox="0 0 12 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.7 12.25H0.149998V4.225H2.7V12.25ZM1.425 3.1C0.600001 3.1 0 2.5 0 1.675C0 0.85 0.675001 0.25 1.425 0.25C2.25 0.25 2.85 0.85 2.85 1.675C2.85 2.5 2.25 3.1 1.425 3.1ZM12 12.25H9.45V7.9C9.45 6.625 8.925 6.25 8.175 6.25C7.425 6.25 6.675 6.85 6.675 7.975V12.25H4.125V4.225H6.525V5.35C6.75 4.825 7.65 4 8.925 4C10.35 4 11.85 4.825 11.85 7.3V12.25H12Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="pb-10"
+            style={{
+              backgroundImage: `url('https://tegarmine.github.io/tesghp/BGFooter.png')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div className="content-section px-[20px]">
+              <h5 className="text-[#28292B] text-sm">
+                &copy; Copyright CintaQuran® Foundation All Rights Reserved.
+              </h5>
             </div>
           </div>
         </div>
