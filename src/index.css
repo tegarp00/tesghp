@@ -112,3 +112,14 @@
         transform: translateX(50%);
     }
 }
+
+.input,
+.pseuinput {
+    background-color: #f7f8f8;
+    border: 0.0625rem solid #f7f8f8;
+    border-radius: 0.25rem;
+    height: 3rem;
+    outline: none;
+    font-weight: 400;
+    transition: all .2s ease-in-out
+}

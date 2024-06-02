@@ -6,12 +6,12 @@ function App() {
   const [kajianOnline, setkajianOnline] = useState(0);
   const [majelisCintaQuran, setmajelisCintaQuran] = useState(0);
   const [kajianPerkantoran, setkajianPerkantoran] = useState(0);
-  const sectionRef = useRef(null);
   const images = Array(15).fill(
     "https://tegarmine.github.io/tesghp/kajian2.png"
   );
   const firstNineImages = images.slice(0, 9);
   const remainingImages = images.slice(9);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -292,7 +292,7 @@ function App() {
               Menumbuhkan motivasi agar masyarakat mencintai Alquran dengan
               program-program islami terbaik dan kreatif.
             </p>
-            <button className="font-semibold text-white bg-[#389ED9] py-[15px] rounded-[100px] px-[16px] flex items-center gap-2.5 mb-[64px]">
+            <button className="font-semibold text-white hover:bg-[#00476f] bg-[#389ED9] py-[15px] rounded-[100px] px-[16px] flex items-center gap-2.5 mb-[64px]">
               Donasi Sekarang
               <span>
                 <svg
@@ -1169,7 +1169,7 @@ function App() {
                     Mari bergabung menjadi keluarga Cinta Quran Foundation agar
                     bisa berbagi dengan sesama
                   </h1>
-                  <div className="inline-block bg-white rounded-[100px]">
+                  <div className="inline-block bg-white hover:bg-[#efeaea] hover:cursor-pointer rounded-[100px]">
                     <div className="flex items-center gap-2.5 py-4 md:px-[109px] px-10">
                       <button className="text-[#389ED9] font-semibold">
                         Daftar Sekarang
@@ -1212,7 +1212,7 @@ function App() {
                 Cinta Quran Foundation adalah lembaga independen yang
                 mendakwahkan Alquran sebagai solusi dan inspirasi untuk negeri.
               </p>
-              <button className="font-semibold text-white bg-[#389ED9] py-[11px] rounded-[100px] px-[16px] flex items-center gap-2.5 mb-[64px]">
+              <button className="font-semibold hover:bg-[#00476f] text-white bg-[#389ED9] py-[11px] rounded-[100px] px-[16px] flex items-center gap-2.5 mb-[64px]">
                 <span>
                   <svg
                     width="22"
@@ -1313,7 +1313,7 @@ function App() {
                   </svg>
                 </div>
                 <p>(0251) 85 717 62</p>
-                <div className="flex items-center py-[10px] px-3 gap-[11px] bg-[#00C062] rounded-[100px]">
+                <div className="flex items-center py-[10px] px-3 gap-[11px] bg-[#00C062] hover:bg-[#00a354] rounded-[100px]">
                   <button className="text-white text-sm font-semibold">
                     Hubungi Kami
                   </button>
