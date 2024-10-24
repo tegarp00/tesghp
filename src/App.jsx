@@ -7,7 +7,7 @@ function App() {
   const [majelisCintaQuran, setmajelisCintaQuran] = useState(0);
   const [kajianPerkantoran, setkajianPerkantoran] = useState(0);
   const images = Array(15).fill(
-    "https://tegarmine.github.io/tesghp/kajian2.png"
+    "https://tegarp00.github.io/tesghp/kajian2.png"
   );
   const firstNineImages = images.slice(0, 9);
   const remainingImages = images.slice(9);
@@ -281,7 +281,7 @@ function App() {
       <div
         className="w-full md:h-[150vh]"
         style={{
-          backgroundImage: `url('https://tegarmine.github.io/tesghp/BG.svg')`,
+          backgroundImage: `url('https://tegarp00.github.io/tesghp/BG.svg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -419,7 +419,7 @@ function App() {
           </div>
           <div className="mt-10 md:mt-0">
             <img
-              src="https://tegarmine.github.io/tesghp/hero.png"
+              src="https://tegarp00.github.io/tesghp/hero.png"
               alt=""
               className="w-[524px] animate-slideIn"
             />
@@ -521,7 +521,7 @@ function App() {
           <div className="my-8 grid md:grid-cols-3 grid-cols-1 gap-6 items-center justify-center">
             <div className="max-w-[369.18px] shadow-xl rounded-lg pb-[26px] animate-fadeIn">
               <img
-                src="https://tegarmine.github.io/tesghp/category1.png"
+                src="https://tegarp00.github.io/tesghp/category1.png"
                 alt=""
                 className="w-[369.18px] h-[369.18px] rounded-t-lg"
               />
@@ -549,7 +549,7 @@ function App() {
 
             <div className="max-w-[369.18px] shadow-xl rounded-lg pb-[26px] animate-fadeIn">
               <img
-                src="https://tegarmine.github.io/tesghp/category1.png"
+                src="https://tegarp00.github.io/tesghp/category1.png"
                 alt=""
                 className="w-[369.18px] h-[369.18px] rounded-t-lg"
               />
@@ -577,7 +577,7 @@ function App() {
 
             <div className="max-w-[369.18px] shadow-xl rounded-lg pb-[26px] animate-fadeIn">
               <img
-                src="https://tegarmine.github.io/tesghp/category1.png"
+                src="https://tegarp00.github.io/tesghp/category1.png"
                 alt=""
                 className="w-[369.18px] h-[369.18px] rounded-t-lg"
               />
@@ -821,7 +821,7 @@ function App() {
       <div
         className="w-full"
         style={{
-          backgroundImage: `url('https://tegarmine.github.io/tesghp/BG.svg')`,
+          backgroundImage: `url('https://tegarp00.github.io/tesghp/BG.svg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -913,7 +913,7 @@ function App() {
               <div className="max-w-[744px] max-h-[420px] hover-image relative">
                 <img
                   className="w-full h-full rounded-3xl"
-                  src="https://tegarmine.github.io/tesghp/col1.png"
+                  src="https://tegarp00.github.io/tesghp/col1.png"
                   alt=""
                 />
                 <div className="overlay px-8 text-white">
@@ -929,7 +929,7 @@ function App() {
               <div className="max-w-[361px] max-h-[420px] hover-image relative">
                 <img
                   className="w-full h-full rounded-3xl"
-                  src="https://tegarmine.github.io/tesghp/col2.png"
+                  src="https://tegarp00.github.io/tesghp/col2.png"
                   alt=""
                 />
                 <div className="overlay px-8 text-white">
@@ -947,7 +947,7 @@ function App() {
               <div className="hover-image relative">
                 <img
                   className="min-w-[360px] h-[200px] rounded-3xl"
-                  src="https://tegarmine.github.io/tesghp/col3.png"
+                  src="https://tegarp00.github.io/tesghp/col3.png"
                   alt=""
                 />
                 <div className="overlay px-8">
@@ -959,7 +959,7 @@ function App() {
               <div className="hover-image relative">
                 <img
                   className="min-w-[360px] h-[200px] rounded-3xl"
-                  src="https://tegarmine.github.io/tesghp/col4.png"
+                  src="https://tegarp00.github.io/tesghp/col4.png"
                   alt=""
                 />
                 <div className="overlay px-8">
@@ -971,7 +971,7 @@ function App() {
               <div className="hover-image relative">
                 <img
                   className="min-w-[360px] h-[200px] rounded-3xl"
-                  src="https://tegarmine.github.io/tesghp/col5.png"
+                  src="https://tegarp00.github.io/tesghp/col5.png"
                   alt=""
                 />
                 <div className="overlay px-8">
@@ -1014,7 +1014,7 @@ function App() {
             <div className="max-w-[552px] max-h-[520px] hover-image relative">
               <img
                 className="w-full h-full rounded-3xl"
-                src="https://tegarmine.github.io/tesghp/kajian1.png"
+                src="https://tegarp00.github.io/tesghp/kajian1.png"
                 alt=""
               />
               <div className="overlay-kajian px-8 text-white">
@@ -1084,7 +1084,7 @@ function App() {
       <div
         className="w-full md:h-[80vh] h-[50vh]"
         style={{
-          backgroundImage: `url('https://tegarmine.github.io/tesghp/BG.svg')`,
+          backgroundImage: `url('https://tegarp00.github.io/tesghp/BG.svg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -1102,31 +1102,31 @@ function App() {
             <div className="flex gap-6 max-w-[1366px] mb-6">
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
                 <img
-                  src="https://tegarmine.github.io/tesghp/group1.png"
+                  src="https://tegarp00.github.io/tesghp/group1.png"
                   alt=""
                 />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
                 <img
-                  src="https://tegarmine.github.io/tesghp/group2.png"
+                  src="https://tegarp00.github.io/tesghp/group2.png"
                   alt=""
                 />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
                 <img
-                  src="https://tegarmine.github.io/tesghp/group3.png"
+                  src="https://tegarp00.github.io/tesghp/group3.png"
                   alt=""
                 />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
                 <img
-                  src="https://tegarmine.github.io/tesghp/group4.png"
+                  src="https://tegarp00.github.io/tesghp/group4.png"
                   alt=""
                 />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
                 <img
-                  src="https://tegarmine.github.io/tesghp/group5.png"
+                  src="https://tegarp00.github.io/tesghp/group5.png"
                   alt=""
                 />
               </div>
@@ -1137,31 +1137,31 @@ function App() {
             <div className="flex gap-6 max-w-[1366px] pb-20">
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
                 <img
-                  src="https://tegarmine.github.io/tesghp/group1.png"
+                  src="https://tegarp00.github.io/tesghp/group1.png"
                   alt=""
                 />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
                 <img
-                  src="https://tegarmine.github.io/tesghp/group2.png"
+                  src="https://tegarp00.github.io/tesghp/group2.png"
                   alt=""
                 />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
                 <img
-                  src="https://tegarmine.github.io/tesghp/group3.png"
+                  src="https://tegarp00.github.io/tesghp/group3.png"
                   alt=""
                 />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
                 <img
-                  src="https://tegarmine.github.io/tesghp/group4.png"
+                  src="https://tegarp00.github.io/tesghp/group4.png"
                   alt=""
                 />
               </div>
               <div className="w-[226px] inline-block py-[25px] px-[21px] bg-white rounded-3xl">
                 <img
-                  src="https://tegarmine.github.io/tesghp/group5.png"
+                  src="https://tegarp00.github.io/tesghp/group5.png"
                   alt=""
                 />
               </div>
@@ -1178,7 +1178,7 @@ function App() {
         <div
           className="w-[1128px] h-[272px] rounded-3xl relative"
           style={{
-            backgroundImage: `url('https://tegarmine.github.io/tesghp/call-action.png')`,
+            backgroundImage: `url('https://tegarp00.github.io/tesghp/call-action.png')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -1230,7 +1230,7 @@ function App() {
           <div className="max-w-[368px]">
             <img
               className="mb-[23px]"
-              src="https://tegarmine.github.io/tesghp/assets/logo-hoOvhjiO.svg"
+              src="https://tegarp00.github.io/tesghp/assets/logo-hoOvhjiO.svg"
               alt=""
             />
             <p className="mb-[30px]">
@@ -1434,7 +1434,7 @@ function App() {
         <div
           className="pb-10"
           style={{
-            backgroundImage: `url('https://tegarmine.github.io/tesghp/BGFooter.png')`,
+            backgroundImage: `url('https://tegarp00.github.io/tesghp/BGFooter.png')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
